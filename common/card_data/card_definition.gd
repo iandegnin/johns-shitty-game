@@ -1,5 +1,5 @@
 extends Resource
-class_name CardResource
+class_name CardDefinition
 
 @export var card_name: String
 @export var texture: Texture2D

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dycg608i4nr4i"]
 
-[ext_resource type="Script" uid="uid://w33shebiu3w3" path="res://common/ui/healthui.gd" id="1_0tvm1"]
-[ext_resource type="PackedScene" uid="uid://b67vvnlx6rc1l" path="res://common/components/health/health_pip.tscn" id="2_0tvm1"]
+[ext_resource type="Script" uid="uid://w33shebiu3w3" path="res://ui/healthui.gd" id="1_0tvm1"]
+[ext_resource type="PackedScene" uid="uid://b67vvnlx6rc1l" path="res://ui/health_pip.tscn" id="2_0tvm1"]
 
 [node name="HealthUI" type="Control" unique_id=2021827216]
 layout_mode = 3

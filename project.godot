@@ -23,6 +23,8 @@ config/icon="res://assets/sprites/icon.svg"
 
 GameEvents="*res://common/singletons/game_events.gd"
 ActorFactory="*uid://chh2xo85yrscs"
+ActorRegistry="*uid://dmk0skeu84dgf"
+ActorMutator="*uid://juk4bnfvpckx"
 
 [debug]
 

@@ -1,30 +1,12 @@
 [gd_scene format=3 uid="uid://bjdjvrmb07ybt"]
 
 [ext_resource type="Script" uid="uid://dwxcmwdi85mkn" path="res://entities/actors/slime/slime.gd" id="1_ypj56"]
-[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_yanaq"]
-[ext_resource type="Script" uid="uid://bjho3xuyd4ap7" path="res://common/components/mana/mana_component.gd" id="3_mda5m"]
-[ext_resource type="Script" uid="uid://dmey4yqe03agq" path="res://common/components/stamina/stamina_component.gd" id="4_u8jg6"]
-[ext_resource type="Script" uid="uid://ci0olkhwig7ar" path="res://common/components/health/health_component.gd" id="5_los8c"]
-[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://common/ui/healthui.tscn" id="7_b1ptg"]
-[ext_resource type="Script" uid="uid://jjqeqgtpn3lj" path="res://common/components/actor/actor_component.gd" id="8_nuuku"]
+[ext_resource type="PackedScene" uid="uid://bvceuelgedftg" path="res://common/components/entity_visuals/entity_visuals.tscn" id="4_nubw5"]
+[ext_resource type="PackedScene" uid="uid://cie7x84vgg8ri" path="res://common/components/stats/stat_controller.tscn" id="4_wrgfa"]
+[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://ui/healthui.tscn" id="7_b1ptg"]
 
 [node name="Slime" type="Node2D" unique_id=829301227]
 script = ExtResource("1_ypj56")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2028297800]
-texture = ExtResource("2_yanaq")
-
-[node name="ManaComponent" type="Node" parent="." unique_id=1341829227]
-script = ExtResource("3_mda5m")
-metadata/_custom_type_script = "uid://bjho3xuyd4ap7"
-
-[node name="StaminaComponent" type="Node" parent="." unique_id=189064391]
-script = ExtResource("4_u8jg6")
-metadata/_custom_type_script = "uid://dmey4yqe03agq"
-
-[node name="HealthComponent" type="Node" parent="." unique_id=1590349225]
-script = ExtResource("5_los8c")
-metadata/_custom_type_script = "uid://ci0olkhwig7ar"
 
 [node name="HealthUI" parent="." unique_id=2021827216 instance=ExtResource("7_b1ptg")]
 anchors_preset = 8
@@ -39,6 +21,6 @@ offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ActorComponent" type="Node" parent="." unique_id=1352854100]
-script = ExtResource("8_nuuku")
-metadata/_custom_type_script = "uid://jjqeqgtpn3lj"
+[node name="StatController" parent="." unique_id=414981662 instance=ExtResource("4_wrgfa")]
+
+[node name="EntityVisuals" parent="." unique_id=979803892 instance=ExtResource("4_nubw5")]

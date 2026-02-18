@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cie7x84vgg8ri"]
+
+[ext_resource type="Script" uid="uid://ctqrqdcfn45kw" path="res://common/components/stats/stat_controller.gd" id="1_w8dfn"]
+[ext_resource type="Script" uid="uid://ci0olkhwig7ar" path="res://common/components/stats/health_component.gd" id="2_nhgp6"]
+[ext_resource type="Script" uid="uid://bjho3xuyd4ap7" path="res://common/components/stats/mana_component.gd" id="3_biijw"]
+[ext_resource type="Script" uid="uid://dmey4yqe03agq" path="res://common/components/stats/stamina_component.gd" id="4_oyjhh"]
+
+[node name="StatController" type="Node" unique_id=414981662]
+script = ExtResource("1_w8dfn")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1956296248]
+script = ExtResource("2_nhgp6")
+metadata/_custom_type_script = "uid://ci0olkhwig7ar"
+
+[node name="ManaComponent" type="Node" parent="." unique_id=76832581]
+script = ExtResource("3_biijw")
+metadata/_custom_type_script = "uid://bjho3xuyd4ap7"
+
+[node name="StaminaComponent" type="Node" parent="." unique_id=1221526044]
+script = ExtResource("4_oyjhh")
+metadata/_custom_type_script = "uid://dmey4yqe03agq"

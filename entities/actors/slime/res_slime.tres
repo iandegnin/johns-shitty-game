@@ -1,14 +1,11 @@
-[gd_resource type="Resource" script_class="ActorResource" format=3 uid="uid://00s2q6rsyehb"]
+[gd_resource type="Resource" script_class="ActorDefinition" format=3 uid="uid://00s2q6rsyehb"]
 
-[ext_resource type="Script" uid="uid://h4g32cnp43yq" path="res://common/actor/actor_resource.gd" id="1_uy2a8"]
-[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_qa8w5"]
+[ext_resource type="Resource" uid="uid://46i6cth3pqw3" path="res://entities/actors/slime/res_slime_stats.tres" id="1_pfg3i"]
+[ext_resource type="Script" uid="uid://h4g32cnp43yq" path="res://common/components/actor/actor_definition.gd" id="2_qa8w5"]
+[ext_resource type="Resource" uid="uid://b3bb6gyxanvng" path="res://entities/actors/slime/res_slime_vis.tres" id="3_akqut"]
 
 [resource]
-script = ExtResource("1_uy2a8")
-actor_id = "slime"
+script = ExtResource("2_qa8w5")
 actor_name = "slime"
-texture = ExtResource("2_qa8w5")
-current_health = 3
-max_stamina = 3
-max_mana = 3
-metadata/_custom_type_script = "uid://h4g32cnp43yq"
+visuals = ExtResource("3_akqut")
+base_stats = ExtResource("1_pfg3i")

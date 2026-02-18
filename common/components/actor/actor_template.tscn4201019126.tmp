@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b02enche7j71s"]
+
+[ext_resource type="Script" uid="uid://cl0vu7up5ag6w" path="res://common/actor/actor.gd" id="1_7iq76"]
+[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_oa0kg"]
+[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://ui/healthui.tscn" id="6_4bmvp"]
+
+[node name="ActorTemplate" type="Node2D" unique_id=597848293]
+script = ExtResource("1_7iq76")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2028297800]
+texture = ExtResource("2_oa0kg")
+
+[node name="HealthUI" parent="." unique_id=2021827216 instance=ExtResource("6_4bmvp")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -111.0
+offset_right = -94.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2

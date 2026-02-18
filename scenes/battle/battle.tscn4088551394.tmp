@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dtcmed61yx6hl"]
+
+[ext_resource type="Script" uid="uid://1a5wfr44kdf" path="res://scenes/battle/combat_manager.gd" id="1_jb6ie"]
+[ext_resource type="Script" uid="uid://dvoqu7ixap3ay" path="res://scenes/battle/battle.gd" id="1_w7som"]
+[ext_resource type="Script" uid="uid://t4bnkxeu2hi4" path="res://scenes/battle/turn_handler.gd" id="2_xybuj"]
+[ext_resource type="Script" uid="uid://bk22tl5kymb4x" path="res://scenes/battle/debug_advance_phase.gd" id="4_a4f60"]
+[ext_resource type="Script" uid="uid://jscstoge6pb0" path="res://scenes/battle/make_slime.gd" id="5_a4f60"]
+
+[node name="Battle" type="Node2D" unique_id=471605585]
+script = ExtResource("1_w7som")
+
+[node name="CombatManager" type="Node" parent="." unique_id=1257039900]
+script = ExtResource("1_jb6ie")
+metadata/_custom_type_script = "uid://1a5wfr44kdf"
+
+[node name="TurnHandler" type="Node" parent="." unique_id=350006202]
+script = ExtResource("2_xybuj")
+metadata/_custom_type_script = "uid://t4bnkxeu2hi4"
+
+[node name="DebugAdvancePhase" type="Button" parent="." unique_id=81168068]
+offset_left = 208.0
+offset_top = 120.0
+offset_right = 325.0
+offset_bottom = 160.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Change Phase"
+script = ExtResource("4_a4f60")
+
+[node name="MakeSlime" type="Button" parent="." unique_id=454921027]
+offset_left = 216.0
+offset_top = 80.0
+offset_right = 313.0
+offset_bottom = 111.0
+text = "Make Slime"
+script = ExtResource("5_a4f60")

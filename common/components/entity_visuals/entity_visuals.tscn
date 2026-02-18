@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bvceuelgedftg"]
+
+[ext_resource type="Script" uid="uid://bwdsvgkbha4gm" path="res://common/components/entity_visuals/entity_visuals.gd" id="1_6y64i"]
+
+[node name="EntityVisuals" type="Node2D" unique_id=979803892]
+script = ExtResource("1_6y64i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1686105360]
