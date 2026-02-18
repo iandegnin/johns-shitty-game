@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://mo0o48gyvk0u"]
+
+[ext_resource type="Script" uid="uid://dwxcmwdi85mkn" path="res://actors/slime/slime.gd" id="1_ypj56"]
+[ext_resource type="Script" uid="uid://ci0olkhwig7ar" path="res://core/components/health_component.gd" id="2_vbgn4"]
+[ext_resource type="Script" uid="uid://r3cyjxajc50v" path="res://core/stats/health_stats.gd" id="3_vbgn4"]
+[ext_resource type="Script" uid="uid://cj28gj7rvrlg3" path="res://core/components/split_component.gd" id="4_cjasg"]
+[ext_resource type="Script" uid="uid://c8cj2u7iq6sln" path="res://core/stats/split_stats.gd" id="5_ppdhw"]
+
+[sub_resource type="Resource" id="Resource_vbgn4"]
+script = ExtResource("3_vbgn4")
+max_health = 3.0
+current_health = 3.0
+metadata/_custom_type_script = "uid://r3cyjxajc50v"
+
+[sub_resource type="Resource" id="Resource_ppdhw"]
+script = ExtResource("5_ppdhw")
+split_chance = 1.0
+metadata/_custom_type_script = "uid://c8cj2u7iq6sln"
+
+[node name="Slime" type="Sprite2D"]
+script = ExtResource("1_ypj56")
+health_stats = SubResource("Resource_vbgn4")
+split_stats = SubResource("Resource_ppdhw")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_vbgn4")
+metadata/_custom_type_script = "uid://ci0olkhwig7ar"
+
+[node name="SplitComponent" type="Node" parent="."]
+script = ExtResource("4_cjasg")
+metadata/_custom_type_script = "uid://cj28gj7rvrlg3"

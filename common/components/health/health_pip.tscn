@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b67vvnlx6rc1l"]
+
+[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="1_l4fyd"]
+
+[node name="TextureRect" type="TextureRect" unique_id=931118751]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_l4fyd")
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bjdjvrmb07ybt"]
+
+[ext_resource type="Script" uid="uid://dwxcmwdi85mkn" path="res://entities/actors/slime/slime.gd" id="1_ypj56"]
+[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_yanaq"]
+[ext_resource type="Script" uid="uid://bjho3xuyd4ap7" path="res://common/components/mana/mana_component.gd" id="3_mda5m"]
+[ext_resource type="Script" uid="uid://dmey4yqe03agq" path="res://common/components/stamina/stamina_component.gd" id="4_u8jg6"]
+[ext_resource type="Script" uid="uid://ci0olkhwig7ar" path="res://common/components/health/health_component.gd" id="5_los8c"]
+[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://common/ui/healthui.tscn" id="7_b1ptg"]
+[ext_resource type="Script" uid="uid://jjqeqgtpn3lj" path="res://common/components/actor/actor_component.gd" id="8_nuuku"]
+
+[node name="Slime" type="Node2D" unique_id=829301227]
+script = ExtResource("1_ypj56")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2028297800]
+texture = ExtResource("2_yanaq")
+
+[node name="ManaComponent" type="Node" parent="." unique_id=1341829227]
+script = ExtResource("3_mda5m")
+metadata/_custom_type_script = "uid://bjho3xuyd4ap7"
+
+[node name="StaminaComponent" type="Node" parent="." unique_id=189064391]
+script = ExtResource("4_u8jg6")
+metadata/_custom_type_script = "uid://dmey4yqe03agq"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1590349225]
+script = ExtResource("5_los8c")
+metadata/_custom_type_script = "uid://ci0olkhwig7ar"
+
+[node name="HealthUI" parent="." unique_id=2021827216 instance=ExtResource("7_b1ptg")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -111.0
+offset_right = -94.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActorComponent" type="Node" parent="." unique_id=1352854100]
+script = ExtResource("8_nuuku")
+metadata/_custom_type_script = "uid://jjqeqgtpn3lj"

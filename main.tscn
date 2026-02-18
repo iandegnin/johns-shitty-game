@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://sul6t3f830x8"]
+
+[ext_resource type="Script" uid="uid://caldfomnnul4x" path="res://main.gd" id="1_1bvp3"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8892288, 0.78569454, 0.5845499, 0.34901962)

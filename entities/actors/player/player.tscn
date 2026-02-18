@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://fy3hiixnfbp3"]
+
+[ext_resource type="Script" uid="uid://rippihqt2lrf" path="res://entities/actors/player/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_dovo2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dovo2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmlin"]
+bg_color = Color(0.64681363, 0.015266088, 0.1955669, 1)
+
+[node name="Player" type="Node2D" unique_id=2135469717]
+script = ExtResource("1_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=172834898]
+texture = ExtResource("2_dovo2")
+
+[node name="StatsLabel" type="Label" parent="." unique_id=454828876]
+offset_left = -168.0
+offset_top = -64.0
+offset_right = -128.0
+offset_bottom = 64.0
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1893473084]
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = -69.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dovo2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gmlin")

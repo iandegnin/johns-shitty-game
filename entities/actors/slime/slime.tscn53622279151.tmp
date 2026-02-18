@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://mo0o48gyvk0u"]
+
+[ext_resource type="Script" uid="uid://dwxcmwdi85mkn" path="res://actors/slime/slime.gd" id="1_ypj56"]
+[ext_resource type="Script" uid="uid://ci0olkhwig7ar" path="res://core/components/health/health_component.gd" id="2_vbgn4"]
+[ext_resource type="Script" uid="uid://r3cyjxajc50v" path="res://core/resources/health_stats.gd" id="3_vbgn4"]
+[ext_resource type="Script" uid="uid://cj28gj7rvrlg3" path="res://actors/slime/split_component.gd" id="4_cjasg"]
+[ext_resource type="Script" uid="uid://c8cj2u7iq6sln" path="res://actors/slime/data_types/split_stats.gd" id="5_ppdhw"]
+
+[sub_resource type="GDScript" id="GDScript_qfp8a"]
+
+[sub_resource type="Resource" id="Resource_ypj56"]
+script = SubResource("GDScript_qfp8a")
+metadata/_custom_type_script = "uid://c0clwlpt83dhd"
+
+[sub_resource type="Resource" id="Resource_cjasg"]
+script = ExtResource("3_vbgn4")
+metadata/_custom_type_script = "uid://r3cyjxajc50v"
+
+[sub_resource type="Resource" id="Resource_4skca"]
+script = ExtResource("5_ppdhw")
+split_chance = 0.5
+metadata/_custom_type_script = "uid://c8cj2u7iq6sln"
+
+[node name="Slime" type="Sprite2D"]
+script = ExtResource("1_ypj56")
+stats = SubResource("Resource_ypj56")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_vbgn4")
+health_stats = SubResource("Resource_cjasg")
+metadata/_custom_type_script = "uid://ci0olkhwig7ar"
+
+[node name="SplitComponent" type="Node" parent="."]
+script = ExtResource("4_cjasg")
+split_stats = SubResource("Resource_4skca")
+metadata/_custom_type_script = "uid://cj28gj7rvrlg3"

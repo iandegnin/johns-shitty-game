@@ -1,0 +1,32 @@
+# Godot-specific files
+.godot/
+export.cfg
+export_presets.cfg
+
+# Built-in export templates
+# Uncomment the following lines if you wish to ignore the export templates
+# which are stored in the project folder
+# export_templates/
+# export_templates.tpz
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Optional: Build output
+# build/
+# export/
+
+# Optional: C# / Mono
+# Uncomment the following lines if you use C#
+# .mono/
+# *.csproj
+# *.sln
+# [Bb]in/
+# [Oo]bj/
+
+# Optional: Generated C++ bindings
+# godot-cpp/bin/
+# You should add these to your global gitignore
+# .vscode/
+# .idea/

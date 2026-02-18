@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActorResource" format=3 uid="uid://00s2q6rsyehb"]
+
+[ext_resource type="Script" uid="uid://h4g32cnp43yq" path="res://common/actor/actor_resource.gd" id="1_uy2a8"]
+[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_qa8w5"]
+
+[resource]
+script = ExtResource("1_uy2a8")
+actor_id = "slime"
+actor_name = "slime"
+texture = ExtResource("2_qa8w5")
+current_health = 3
+max_stamina = 3
+max_mana = 3
+metadata/_custom_type_script = "uid://h4g32cnp43yq"
