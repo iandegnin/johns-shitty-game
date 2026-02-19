@@ -1,4 +1,4 @@
-class_name VisualsConfig
+class_name ActorVisuals
 extends Resource
 
 @export_group("Texture Settings")

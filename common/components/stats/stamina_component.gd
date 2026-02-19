@@ -6,7 +6,7 @@ signal stamina_depleted
 
 var current_stamina: int = 0
 
-func initialize(data: BaseStats) -> void:
+func initialize(data: CoreStats) -> void:
 	current_stamina = data.starting_stamina
 	stamina_changed.emit(current_stamina)
 

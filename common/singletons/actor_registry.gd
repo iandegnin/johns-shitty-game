@@ -2,8 +2,7 @@ extends Node
 
 var units: Dictionary = {
 	"slime": {
-		"data": preload("res://entities/actors/slime/res_slime.tres"),
-		"scene": preload("res://entities/actors/slime/slime.tscn")
+		"data": preload("res://entities/actors/slime/res_slime_def.tres"),
 	},
 }
 

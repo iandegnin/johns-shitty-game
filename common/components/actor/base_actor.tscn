@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b02enche7j71s"]
+
+[ext_resource type="Script" uid="uid://cl0vu7up5ag6w" path="res://common/components/actor/base_actor.gd" id="1_x647m"]
+[ext_resource type="PackedScene" uid="uid://bvceuelgedftg" path="res://common/components/entity_visuals/actor_view.tscn" id="2_1en3a"]
+[ext_resource type="PackedScene" uid="uid://cie7x84vgg8ri" path="res://common/components/stats/stat_controller.tscn" id="3_53j3f"]
+
+[node name="BaseActor" type="Node2D" unique_id=597848293]
+script = ExtResource("1_x647m")
+
+[node name="ActorView" parent="." unique_id=979803892 instance=ExtResource("2_1en3a")]
+
+[node name="StatController" parent="." unique_id=414981662 instance=ExtResource("3_53j3f")]

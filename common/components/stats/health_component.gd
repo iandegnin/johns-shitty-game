@@ -7,7 +7,7 @@ signal died
 var current_health: int
 var _starting_health: int # Stored for "Reset/Heal to Full" logic
 
-func initialize(data: BaseStats) -> void:
+func initialize(data: CoreStats) -> void:
 	_starting_health = data.starting_health
 	current_health = _starting_health
 	health_changed.emit(current_health)

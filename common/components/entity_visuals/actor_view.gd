@@ -1,10 +1,10 @@
-class_name EntityVisuals
+class_name ActorView
 extends Node2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 
 ## Applies the visual settings from the resource to the sprite
-func apply_configuration(config: VisualsConfig) -> void:
+func apply_configuration(config: ActorVisuals) -> void:
 	if not config:
 		push_error("EntityVisuals: Missing VisualsResource on %s" % owner.name)
 		return

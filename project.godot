@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="RPG combat"
+config/name="johns shitty game"
 run/main_scene="uid://sul6t3f830x8"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://assets/sprites/icon.svg"

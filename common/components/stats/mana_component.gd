@@ -5,7 +5,7 @@ signal mana_changed(current: int)
 
 var current_mana: int
 
-func initialize(data: BaseStats) -> void:
+func initialize(data: CoreStats) -> void:
 	current_mana = data.starting_mana
 	mana_changed.emit(current_mana)
 

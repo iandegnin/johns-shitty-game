@@ -21,7 +21,7 @@ var current_stamina: int:
 	get:
 		return stamina_component.current_stamina if stamina_component else 0
 
-func initialize(data: BaseStats) -> void:
+func initialize(data: CoreStats) -> void:
 	if health_component: health_component.initialize(data)
 	if mana_component: mana_component.initialize(data)
 	if stamina_component: stamina_component.initialize(data)

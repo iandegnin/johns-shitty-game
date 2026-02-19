@@ -1,4 +1,4 @@
-class_name BaseStats
+class_name CoreStats
 extends Resource
 
 @export_group("Starting Values")
