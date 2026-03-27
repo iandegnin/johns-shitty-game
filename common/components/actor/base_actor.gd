@@ -2,41 +2,40 @@ class_name BaseActor
 extends Node2D
 
 signal actor_died(actor: BaseActor)
-signal hit_received
+signal health_changed(actor: BaseActor)
 
-@export var definition: ActorDefinition
+@export var actor_data: ActorDefinition
 
-@onready var stats: StatController = $StatController
+@onready var stat_controller: StatController = $StatController
 @onready var visuals: ActorView = $ActorView
 
 var hand: Array[CardDefinition] = []
 var buffer: Array[CardDefinition] = []
 
 func _ready() -> void:
+	if actor_data:
+		initialize(actor_data)
 	add_to_group("actors")
 	_connect_signals()
-	
-	if definition:
-		initialize(definition)
 
 func initialize(data: ActorDefinition) -> void:
-	# Dispatch sub-resources to specialized components
+	self.name = data.name
 	if visuals and data.visuals:
 		visuals.apply_configuration(data.visuals)
 	
-	if stats and data.core_stats:
-		stats.initialize(data.core_stats)
+	if stat_controller and data.core_stats:
+		stat_controller.initialize(data.core_stats)
 
 func _connect_signals() -> void:
-	if stats:
-		stats.health_depleted.connect(_on_death)
+	if stat_controller:
+		stat_controller.health_depleted.connect(_on_death)
 
-func take_damage(amount: int) -> void:
-	stats.apply_damage(amount)
-	# Feedback is now handled by the Visuals component
+func take_hit(amount: int) -> void:
+	stat_controller.apply_damage(amount)
+
 	if visuals:
 		visuals.flash_hurt()
-	hit_received.emit()
+		health_changed.emit(self)
 
 func _on_death() -> void:
 	actor_died.emit(self)

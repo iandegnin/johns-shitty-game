@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardDefinition" format=3 uid="uid://b8tnha6w0rsgj"]
+
+[ext_resource type="Script" uid="uid://d12opcj50gcri" path="res://common/components/effect.gd" id="1_os7b6"]
+[ext_resource type="Script" uid="uid://3k7f5qpxt7rt" path="res://common/components/card_definition.gd" id="2_0ghtw"]
+[ext_resource type="Script" uid="uid://dgqgn7708yn7j" path="res://common/card_data/effects/damage_effect.gd" id="2_vmc43"]
+
+[sub_resource type="Resource" id="Resource_0ghtw"]
+resource_name = "DamageEffect"
+script = ExtResource("2_vmc43")
+metadata/_custom_type_script = "uid://dgqgn7708yn7j"
+
+[resource]
+script = ExtResource("2_0ghtw")
+activation_beat = 2
+energy_cost = 2
+effects = Array[ExtResource("1_os7b6")]([SubResource("Resource_0ghtw")])
+metadata/_custom_type_script = "uid://3k7f5qpxt7rt"

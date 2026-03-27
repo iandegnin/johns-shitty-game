@@ -7,18 +7,18 @@
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_shusm")
-health_bar = NodePath("VBoxContainer/HealthBar")
-stamina_bar = NodePath("VBoxContainer/StaminaBar")
-mana_bar = NodePath("VBoxContainer/ManaBar")
+health_bar = NodePath("VBoxContainer/HealthResourceBar")
+stamina_bar = NodePath("VBoxContainer/StaminaResourceBar")
+mana_bar = NodePath("VBoxContainer/ManaResourceBar")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=717476138]
 layout_mode = 2
 
-[node name="HealthBar" parent="VBoxContainer" unique_id=1503389735 instance=ExtResource("2_qbkwt")]
+[node name="HealthResourceBar" parent="VBoxContainer" unique_id=1503389735 instance=ExtResource("2_qbkwt")]
 layout_mode = 2
 
-[node name="StaminaBar" parent="VBoxContainer" unique_id=99812937 instance=ExtResource("2_qbkwt")]
+[node name="StaminaResourceBar" parent="VBoxContainer" unique_id=1097392778 instance=ExtResource("2_qbkwt")]
 layout_mode = 2
 
-[node name="ManaBar" parent="VBoxContainer" unique_id=1046360680 instance=ExtResource("2_qbkwt")]
+[node name="ManaResourceBar" parent="VBoxContainer" unique_id=2131294587 instance=ExtResource("2_qbkwt")]
 layout_mode = 2

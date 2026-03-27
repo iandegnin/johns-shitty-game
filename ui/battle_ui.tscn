@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://bqhpb6ej5xjgw"]
 
-[node name="BattleUI" type="MarginContainer" unique_id=2003799690]
+[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://ui/actor_ui.tscn" id="1_fyysl"]
+
+[node name="BattleUI" type="CanvasLayer" unique_id=672500802]
+
+[node name="ActorLeftUI" parent="." unique_id=177515477 instance=ExtResource("1_fyysl")]
+size_flags_horizontal = 0
+
+[node name="ActorRightUI" parent="." unique_id=1966422193 instance=ExtResource("1_fyysl")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 0.0
+grow_horizontal = 0
