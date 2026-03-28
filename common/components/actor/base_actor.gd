@@ -3,6 +3,8 @@ extends Node2D
 
 signal actor_died(actor: BaseActor)
 signal health_changed(actor: BaseActor)
+signal stamina_changed(actor: BaseActor)
+signal mana_changed(actor: BaseActor)
 
 @export var actor_data: ActorDefinition
 

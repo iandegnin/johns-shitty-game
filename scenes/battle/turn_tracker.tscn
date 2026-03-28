@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dtkoxvnaqvdki"]
+
+[ext_resource type="Script" uid="uid://bla756pw8v1dw" path="res://scenes/battle/turn_tracker.gd" id="1_tho33"]
+
+[node name="Node" type="Node" unique_id=925292598]
+script = ExtResource("1_tho33")

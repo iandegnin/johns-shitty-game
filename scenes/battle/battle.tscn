@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://t4bnkxeu2hi4" path="res://scenes/battle/turn_handler.gd" id="2_xybuj"]
 [ext_resource type="Script" uid="uid://bk22tl5kymb4x" path="res://scenes/battle/debug_advance_phase.gd" id="4_a4f60"]
 [ext_resource type="Script" uid="uid://jscstoge6pb0" path="res://scenes/battle/make_slime.gd" id="5_a4f60"]
+[ext_resource type="Script" uid="uid://bla756pw8v1dw" path="res://scenes/battle/turn_tracker.gd" id="5_pll4o"]
 [ext_resource type="PackedScene" uid="uid://bqhpb6ej5xjgw" path="res://ui/battle_ui.tscn" id="6_fh7rg"]
 
 [node name="Battle" type="Node2D" unique_id=471605585]
@@ -19,6 +20,10 @@ metadata/_custom_type_script = "uid://1a5wfr44kdf"
 [node name="TurnHandler" type="Node" parent="." unique_id=350006202]
 script = ExtResource("2_xybuj")
 metadata/_custom_type_script = "uid://t4bnkxeu2hi4"
+
+[node name="TurnTracker" type="Node" parent="TurnHandler" unique_id=358064793]
+script = ExtResource("5_pll4o")
+metadata/_custom_type_script = "uid://bla756pw8v1dw"
 
 [node name="MakeSlime" type="Button" parent="." unique_id=454921027]
 offset_left = 269.0
@@ -72,3 +77,4 @@ offset_left = 290.0
 offset_top = 300.0
 offset_right = 330.0
 offset_bottom = 323.0
+text = "TURN 1"

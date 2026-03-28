@@ -51,8 +51,8 @@ func make_slime(side: String) -> void:
 	combatants[new_slime] = data
 	
 	new_slime.health_changed.connect(_on_actor_health_changed)
-	new_slime.health_changed.connect(_on_actor_stamina_changed)
-	new_slime.health_changed.connect(_on_actor_mana_changed)
+	new_slime.stamina_changed.connect(_on_actor_stamina_changed)
+	new_slime.mana_changed.connect(_on_actor_mana_changed)
 	_on_actor_health_changed(new_slime)
 	_on_actor_stamina_changed(new_slime)
 	_on_actor_mana_changed(new_slime)
@@ -69,7 +69,7 @@ func end_phase() -> void:
 func end_turn() -> void:
 	turn_handler.advance_turn()
 	var label_text: String = str(current_turn)
-	$PhaseLabel.text = label_text
+	$TurnLabel.text = ("TURN " + label_text)
 
 func _on_actor_health_changed(sender: Node2D) -> void:
 	var data: CombatantData = combatants[sender] as CombatantData
