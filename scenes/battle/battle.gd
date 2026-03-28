@@ -45,7 +45,7 @@ func _ready() -> void:
 	get_hurt.pressed.connect(_on_hurt)
 
 func make_slime(side: String) -> void:
-	var new_slime: Node2D = ActorFactory.spawn_actor("slime", self, Vector2(100, 250))
+	var new_slime: BaseActor = ActorFactory.spawn_actor("slime", self, Vector2(100, 250))
 	var target_ui: ActorUI = $BattleUI/ActorLeftUI if side == "left" else $BattleUI/ActorRightUI
 	var data: CombatantData = CombatantData.new(new_slime, target_ui, side)
 	combatants[new_slime] = data

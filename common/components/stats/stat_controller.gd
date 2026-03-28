@@ -28,27 +28,14 @@ func _safe_connect(sig: Signal, target: Callable) -> void:
 	if not sig.is_connected(target):
 		sig.connect(target)
 		
-		
-		
-		
 func apply_damage(raw_amount: int) -> void:
 	if not health: return
 	health.modify(-raw_amount)
-	
-	# Complex health logic: Factor in armor/defense
-#	var defense = get_total_defense() # Logic housed here or in another component
-#	var final_damage = max(1, raw_amount - defense) 
-	
-#	health.modify(-final_damage)
 
 func use_mana(amount: int) -> void:
 	if not mana: return
-	
-	# Straightforward drain: No armor calculation needed
 	mana.modify(-amount)
 
 func use_stamina(amount: int) -> void:
 	if not stamina: return
-	
-	# Straightforward drain
 	stamina.modify(-amount)

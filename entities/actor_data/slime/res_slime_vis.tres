@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="VisualsConfig" format=3 uid="uid://b3bb6gyxanvng"]
+[gd_resource type="Resource" script_class="ActorVisuals" format=3 uid="uid://b3bb6gyxanvng"]
 
 [ext_resource type="Script" uid="uid://bjqqi7uvd7m4d" path="res://common/components/actor_visuals/actor_visuals.gd" id="1_wr8x7"]
 [ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_4662b"]

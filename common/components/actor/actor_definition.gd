@@ -9,5 +9,4 @@ extends Resource
 @export var core_stats: CoreStats
 
 @export_group("Optional")
-
 @export var specialized_stats: Resource

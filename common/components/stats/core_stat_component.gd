@@ -5,7 +5,7 @@ signal value_changed(current: int)
 signal depleted
 
 @export_group("Identity")
-@export var stat_name: String = "Stat" # Set this to "Health" etc. in the Inspector
+@export var stat_name: String = "Stat"
 
 @export_group("Settings")
 @export var min_value: int = 0
