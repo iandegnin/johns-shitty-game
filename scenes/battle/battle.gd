@@ -2,18 +2,21 @@ extends Node2D
 
 class CombatantData:
 	var actor: BaseActor
-	var ui_slot: ActorUI
+	var actor_ui: ActorUI
 	var side: String
 	var is_active: bool
 	
-	func _init(_actor: BaseActor, _ui: ActorUI, _side: String) -> void:
+	func _init(_actor: BaseActor, _actor_ui: ActorUI, _side: String) -> void:
 		actor = _actor
-		ui_slot = _ui
+		actor_ui = _actor_ui
 		side = _side
 		is_active = false
 		
 var combatants: Dictionary = {}
 
+@onready var turn_handler: TurnHandler = $TurnHandler
+@onready var combat_manager: CombatHandler = $CombatHandler
+@onready var battle_ui: BattleUI = $BattleUI
 
 @onready var advance_phase_button: Button = get_node("DebugAdvancePhase")
 @onready var make_slime_button: Button = get_node("MakeSlime")
@@ -21,29 +24,36 @@ var combatants: Dictionary = {}
 @onready var cast_spell: Button = get_node("DebugSpellButton")
 @onready var get_hurt: Button = get_node("DebugGetHurtButton")
 
-@onready var turn_handler: TurnHandler = $TurnHandler
-@onready var combat_manager: CombatHandler = $CombatHandler
-
 var current_phase: String:
 	get:
-		return turn_handler.Phase.keys()[turn_handler.current_phase]
+		return turn_handler.Phase.keys()[turn_handler.current_phase] as String
 		
 var current_beat: int:
 	get:
-		return turn_handler.current_beat
+		return turn_handler.current_beat as int
 
 var current_turn: int:
 	get:
-		return turn_handler.current_turn
+		return turn_handler.current_turn as int
 		
 func _ready() -> void:
-	turn_handler.aftermath_phase_ended.connect(end_turn)
 	advance_phase_button.pressed.connect(end_phase)
+	turn_handler.aftermath_phase_ended.connect(end_turn)
+	
 	make_slime_button.pressed.connect(make_slime.bind("left"))
+	
 	attack_button.pressed.connect(_on_attack)
 	cast_spell.pressed.connect(_on_cast_spell)
 	get_hurt.pressed.connect(_on_hurt)
-
+	
+func end_phase() -> void:
+	turn_handler.advance_phase()
+	battle_ui.update_phase_label(current_phase, current_beat)
+	
+func end_turn() -> void:
+	turn_handler.advance_turn()
+	battle_ui.update_turn_label(current_turn)
+	
 func make_slime(side: String) -> void:
 	var new_slime: BaseActor = ActorFactory.spawn_actor("slime", self, Vector2(100, 250))
 	var target_ui: ActorUI = $BattleUI/ActorLeftUI if side == "left" else $BattleUI/ActorRightUI
@@ -57,31 +67,19 @@ func make_slime(side: String) -> void:
 	_on_actor_stamina_changed(new_slime)
 	_on_actor_mana_changed(new_slime)
 	
-func end_phase() -> void:
-	turn_handler.advance_phase()
-	var label_text: String
-	if current_phase == "BEAT":
-		label_text = ("BEAT " + str(current_beat))
-	else:
-		label_text = current_phase
-	$PhaseLabel.text = label_text
-	
-func end_turn() -> void:
-	turn_handler.advance_turn()
-	var label_text: String = str(current_turn)
-	$TurnLabel.text = ("TURN " + label_text)
-
 func _on_actor_health_changed(sender: Node2D) -> void:
 	var data: CombatantData = combatants[sender] as CombatantData
-	data.ui_slot.update_health(sender.stat_controller.health.current)
+	data.actor_ui.update_health(sender.stat_controller.health.current)
 	
 func _on_actor_stamina_changed(sender: Node2D) -> void:
 	var data: CombatantData = combatants[sender] as CombatantData
-	data.ui_slot.update_stamina(sender.stat_controller.stamina.current)
+	data.actor_ui.update_stamina(sender.stat_controller.stamina.current)
 	
 func _on_actor_mana_changed(sender: Node2D) -> void:
 	var data: CombatantData = combatants[sender] as CombatantData
-	data.ui_slot.update_mana(sender.stat_controller.mana.current)
+	data.actor_ui.update_mana(sender.stat_controller.mana.current)
+	
+#Stat changers for debugging	
 	
 func _on_attack() -> void:
 	if $slime:
