@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hp3kbmttehfo"]
+
+[ext_resource type="Script" uid="uid://b560mx0bbhuh3" path="res://scenes/battle/combatant_manager.gd" id="1_atbur"]
+
+[node name="CombatantManager" type="Node" unique_id=1009801712]
+script = ExtResource("1_atbur")

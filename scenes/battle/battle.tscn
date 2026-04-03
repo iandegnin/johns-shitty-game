@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dvoqu7ixap3ay" path="res://scenes/battle/battle.gd" id="1_w7som"]
 [ext_resource type="Script" uid="uid://t4bnkxeu2hi4" path="res://scenes/battle/turn_handler.gd" id="2_xybuj"]
 [ext_resource type="Script" uid="uid://bk22tl5kymb4x" path="res://scenes/battle/debug_advance_phase.gd" id="4_a4f60"]
+[ext_resource type="PackedScene" uid="uid://hp3kbmttehfo" path="res://scenes/battle/combatant_manager.tscn" id="4_py4tk"]
 [ext_resource type="Script" uid="uid://jscstoge6pb0" path="res://scenes/battle/make_slime.gd" id="5_a4f60"]
 [ext_resource type="Script" uid="uid://bla756pw8v1dw" path="res://scenes/battle/turn_tracker.gd" id="5_pll4o"]
 [ext_resource type="PackedScene" uid="uid://bqhpb6ej5xjgw" path="res://ui/battle_ui.tscn" id="6_fh7rg"]
@@ -30,6 +31,8 @@ text = "TURN 1"
 [node name="CombatHandler" type="Node" parent="." unique_id=1257039900]
 script = ExtResource("1_jb6ie")
 metadata/_custom_type_script = "uid://1a5wfr44kdf"
+
+[node name="CombatantManager" parent="." unique_id=1009801712 instance=ExtResource("4_py4tk")]
 
 [node name="TurnHandler" type="Node" parent="." unique_id=350006202]
 script = ExtResource("2_xybuj")
@@ -78,3 +81,9 @@ offset_top = 238.0
 offset_right = 355.0
 offset_bottom = 269.0
 text = "Get Hurt"
+
+[node name="LeftSpawn" type="Marker2D" parent="." unique_id=1261445217]
+position = Vector2(108, 206)
+
+[node name="RightSpawn" type="Marker2D" parent="." unique_id=1208467669]
+position = Vector2(503, 198)

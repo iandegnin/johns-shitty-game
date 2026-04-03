@@ -1,7 +1,8 @@
-class_name StatComponent
+class_name CoreStatComponent
 extends Node
 
 signal value_changed(current: int)
+signal component_initialized(current: int)
 signal depleted
 
 @export_group("Identity")
@@ -19,9 +20,8 @@ func initialize(value: int) -> void:
 	value_changed.emit(current)
 
 func modify(amount: int) -> void:
-#	current = clampi(current + amount, min_value, 999999) 
 	current = current + amount
 	value_changed.emit(current)
 	
-	if current <= min_value:
+	if current <= 0:
 		depleted.emit()

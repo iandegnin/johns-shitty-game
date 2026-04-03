@@ -1,24 +1,14 @@
 extends HBoxContainer
 class_name ResourceBar
 
-@export var pip_scene: PackedScene
-@export var max_resource: int = 3
-
-func _ready() -> void:
-	_initialize_bar()
-
-func _initialize_bar() -> void:
-	for child in get_children():
-		child.queue_free()
-	
-	for i in max_resource:
-		var pip: Node = pip_scene.instantiate()
-		add_child(pip)
+@export var pip_scene: PackedScene	
 
 func update_bar(current_value: int) -> void:
-	var displayed_value: int = clampi(current_value, 0, get_child_count())
+	var pips: Array[Node] = get_children()
+	for i in range(pips.size()):
+		var should_be_filled: bool = i < current_value
+		pips[i].set_filled(should_be_filled)
+#Iterates over each pip assigned to an array via get_children()
+#For each pip, swaps to blank texture if that pip's position if the 
+#index is less than current_value
 	
-	for i in get_child_count():
-		var pip: Node = get_child(i) as ResourcePip
-		if pip:
-			pip.set_is_full(i < displayed_value)

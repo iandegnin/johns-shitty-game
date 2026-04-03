@@ -1,4 +1,3 @@
-@tool
 extends Effect
 class_name DamageEffect
 
@@ -6,7 +5,7 @@ class_name DamageEffect
 
 func execute(_user: Node, _targets: Array[Node]) -> void:
 	for target: Node in _targets:
-		var stats: StatComponent = target.get_node_or_null("Stats")
+		var stats: CoreStatComponent = target.get_node_or_null("Stats")
 		if stats:
 			stats.take_damage(amount)
 

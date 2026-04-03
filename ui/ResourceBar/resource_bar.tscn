@@ -6,3 +6,12 @@
 [node name="ResourceBar" type="HBoxContainer" unique_id=1503389735]
 script = ExtResource("1_6k4g5")
 pip_scene = ExtResource("2_ftfeo")
+
+[node name="Pip1" parent="." unique_id=931118751 instance=ExtResource("2_ftfeo")]
+layout_mode = 2
+
+[node name="Pip2" parent="." unique_id=708328061 instance=ExtResource("2_ftfeo")]
+layout_mode = 2
+
+[node name="Pip3" parent="." unique_id=516096682 instance=ExtResource("2_ftfeo")]
+layout_mode = 2
