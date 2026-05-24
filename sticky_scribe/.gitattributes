@@ -1,0 +1,15 @@
+# default behavior is autocrlf for text files
+* text=auto
+
+# always use native line endings
+*.cs text
+
+# these are godot modified file types, they will always be lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.import text eol=lf
+*.godot text eol=lf
+*.cfg text eol=lf
+*.txt text eol=lf
+*.issues text eol=lf
+*.gd text eol=lf

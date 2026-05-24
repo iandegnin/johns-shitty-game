@@ -1,0 +1,229 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxvnm42fslnrq"]
+
+[ext_resource type="Script" uid="uid://6jwnssafh6b3" path="res://addons/sticky_scribe/text_edit.gd" id="1"]
+[ext_resource type="Script" uid="uid://diqsm7hmnh1gp" path="res://addons/sticky_scribe/issue_item.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dje8gu83r54lf" path="res://addons/sticky_scribe/tag_button.tscn" id="3"]
+[ext_resource type="Script" uid="uid://274xowb32kxm" path="res://addons/sticky_scribe/float_edit.gd" id="3_bplq5"]
+
+[sub_resource type="Gradient" id="3"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.3, 0.5, 0.7, 1)
+colors = PackedColorArray(0.39824, 0.3724, 0.76, 1, 0.129412, 0.588235, 0.952941, 1, 1, 0.921569, 0.231373, 1, 1, 0.596078, 0, 1, 0.717647, 0.109804, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxLine" id="4"]
+thickness = 5
+
+[node name="IssueItem" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 170.0
+grow_horizontal = 2
+size_flags_vertical = 0
+script = ExtResource("2")
+TagButton = ExtResource("3")
+priority_temp = SubResource("3")
+_stub_view_path = NodePath("VBoxContainer/StubView")
+_priority_label_path = NodePath("VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/AspectRatioContainer/Priority")
+_priority_clear_path = NodePath("VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityClear")
+_tag_hbox_path = NodePath("VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/HBoxContainer")
+_text_label_path = NodePath("VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/Text")
+_copied_label_path = NodePath("VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/Copied")
+_estimate_label_path = NodePath("VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/Estimate")
+_strike_path = NodePath("VBoxContainer/StubView/HBoxContainer/Container/Strike")
+_delete_button_path = NodePath("VBoxContainer/StubView/HBoxContainer/Delete")
+_edit_view_path = NodePath("VBoxContainer/EditView")
+_priority_edit_path = NodePath("VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityEdit")
+_estimate_button_path = NodePath("VBoxContainer/EditView/GridContainer/EstimateButton")
+_tags_edit_path = NodePath("VBoxContainer/EditView/GridContainer/TagsLineEdit")
+_text_edit_path = NodePath("VBoxContainer/EditView/TextEdit")
+_details_path = NodePath("VBoxContainer/EditView/Details")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="StubView" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+action_mode = 0
+button_mask = 3
+text = " "
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StubView"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Container" type="MarginContainer" parent="VBoxContainer/StubView/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StubView/HBoxContainer/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+stretch_mode = 1
+
+[node name="Priority" type="Label" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/AspectRatioContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("2")
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TagButton" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer/HBoxContainer" instance=ExtResource("3")]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Example bug test text"
+clip_text = true
+max_lines_visible = 1
+
+[node name="Copied" type="Label" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-- copied to clipboard --"
+clip_text = true
+max_lines_visible = 1
+
+[node name="Estimate" type="Label" parent="VBoxContainer/StubView/HBoxContainer/Container/HBoxContainer"]
+layout_mode = 2
+text = "1 day"
+
+[node name="Strike" type="HSeparator" parent="VBoxContainer/StubView/HBoxContainer/Container"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/separator = SubResource("4")
+
+[node name="Delete" type="Button" parent="VBoxContainer/StubView/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+text = "Delete"
+
+[node name="EditView" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/EditView"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="PriorityLabel" type="Label" parent="VBoxContainer/EditView/GridContainer"]
+layout_mode = 2
+text = "Priority"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EditView/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PriorityEdit" type="LineEdit" parent="VBoxContainer/EditView/GridContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_bplq5")
+value = nan
+
+[node name="PriorityDecrement" type="Button" parent="VBoxContainer/EditView/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "-"
+flat = true
+
+[node name="PriorityIncrement" type="Button" parent="VBoxContainer/EditView/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "+"
+flat = true
+
+[node name="PriorityClear" type="Button" parent="VBoxContainer/EditView/GridContainer/HBoxContainer"]
+layout_mode = 2
+text = "Clear"
+
+[node name="EstimateLabel" type="Label" parent="VBoxContainer/EditView/GridContainer"]
+layout_mode = 2
+text = "Estimate"
+horizontal_alignment = 2
+
+[node name="EstimateButton" type="OptionButton" parent="VBoxContainer/EditView/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "I don't know"
+popup/item_0/id = 0
+popup/item_1/text = "A day"
+popup/item_1/id = 1
+popup/item_2/text = "A week"
+popup/item_2/id = 7
+popup/item_3/text = "A month"
+popup/item_3/id = 35
+popup/item_4/text = "A really long time"
+popup/item_4/id = 4096
+
+[node name="TagsLabel" type="Label" parent="VBoxContainer/EditView/GridContainer"]
+layout_mode = 2
+text = "Tags"
+horizontal_alignment = 2
+
+[node name="TagsLineEdit" type="LineEdit" parent="VBoxContainer/EditView/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "comma-delimited list of tags"
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/EditView"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../../StubView")
+focus_previous = NodePath("../GridContainer/TagsLineEdit")
+wrap_mode = 1
+script = ExtResource("1")
+
+[node name="Details" type="Label" parent="VBoxContainer/EditView"]
+layout_mode = 2
+text = "Opened 5/1/2023 by Andrew Caputi"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/StubView" to="." method="_on_stub_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StubView/HBoxContainer/Delete" to="." method="_on_delete_pressed"]
+[connection signal="value_changed" from="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityEdit" to="." method="_on_priority_changed"]
+[connection signal="pressed" from="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityDecrement" to="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityEdit" method="ui_increment_value" binds= [-1.0]]
+[connection signal="pressed" from="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityIncrement" to="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityEdit" method="ui_increment_value" binds= [1.0]]
+[connection signal="pressed" from="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityClear" to="VBoxContainer/EditView/GridContainer/HBoxContainer/PriorityEdit" method="ui_set_value" binds= [nan]]
+[connection signal="item_selected" from="VBoxContainer/EditView/GridContainer/EstimateButton" to="." method="_on_estimate_item_selected"]
+[connection signal="text_changed" from="VBoxContainer/EditView/GridContainer/TagsLineEdit" to="." method="_on_tags_changed"]
+[connection signal="text_changed" from="VBoxContainer/EditView/TextEdit" to="." method="_on_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/EditView/TextEdit" to="VBoxContainer/EditView/TextEdit" method="_fit_to_contents"]
+[connection signal="visibility_changed" from="VBoxContainer/EditView/TextEdit" to="VBoxContainer/EditView/TextEdit" method="_fit_to_contents" flags=3]

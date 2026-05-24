@@ -1,18 +1,20 @@
 class_name CoreStats
 extends Resource
 
+enum CoreStatType {HEALTH, STAMINA, MANA}
+
 @export_group("Initial Values")
 @export var initial_health: int = 3
 @export var initial_mana: int = 3
 @export var initial_stamina: int = 3
 
-func get_initial_value(type: StatTypes.CoreStatType) -> int:
+func get_initial_value(type: CoreStatType) -> int:
 	match type:
-		StatTypes.CoreStatType.HEALTH:
+		CoreStatType.HEALTH:
 			return initial_health
-		StatTypes.CoreStatType.STAMINA:
+		CoreStatType.STAMINA:
 			return initial_stamina
-		StatTypes.CoreStatType.MANA:
+		CoreStatType.MANA:
 			return initial_mana
 		_:
 			return 0

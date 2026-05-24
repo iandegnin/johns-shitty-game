@@ -16,3 +16,5 @@ func update_bar(current_value: int) -> void:
 #For each pip, swaps to blank texture if that pip's position if the 
 #index is less than current_value
 	
+func set_color(color: Color) -> void:
+	self.modulate = color

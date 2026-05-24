@@ -1,0 +1,194 @@
+[gd_scene load_steps=4 format=3 uid="uid://du0xv4ns3eaj8"]
+
+[ext_resource type="Script" uid="uid://kd27qsrurh30" path="res://addons/sticky_scribe/main_panel.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cxvnm42fslnrq" path="res://addons/sticky_scribe/issue_item.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bbfeubvywgy6x" path="res://addons/sticky_scribe/color_button.tscn" id="2_me8a3"]
+
+[node name="MainPanel" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+script = ExtResource("1")
+ColorButton = ExtResource("2_me8a3")
+IssueItem = ExtResource("2")
+_author_edit_path = NodePath("HBoxContainer/AuthorEdit")
+_sort_path = NodePath("HBoxContainer/SortButton")
+_issue_vbox_path = NodePath("ScrollContainer/VBoxContainer")
+_save_timer_path = NodePath("SaveTimer")
+_count_label_path = NodePath("CountLabel")
+_scroll_container_path = NodePath("ScrollContainer")
+_new_button_path = NodePath("HBoxContainer/NewButton")
+_tag_palette_popup_path = NodePath("TagPalettePopup")
+_tag_palette_grid_path = NodePath("TagPalettePopup/BackingPanel/TagPaletteGrid")
+_quick_filter_path = NodePath("HBoxContainer/QuickFilter")
+_tag_edit_path = NodePath("HBoxContainer/QuickFilter/TagEdit")
+_priority_filter_path = NodePath("HBoxContainer/QuickFilter/PriorityFilter")
+_priority_edit_path = NodePath("HBoxContainer/QuickFilter/PriorityEdit")
+_search_edit_path = NodePath("HBoxContainer/QuickFilter/SearchEdit")
+_gd_filter_path = NodePath("HBoxContainer/GdFilter")
+_expression_edit_path = NodePath("HBoxContainer/GdFilter/ExpressionEdit")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SortButton" type="MenuButton" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"Button"
+text = "Sort By..."
+flat = false
+
+[node name="QuickFilter" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TagLabel" type="Label" parent="HBoxContainer/QuickFilter"]
+layout_mode = 2
+text = "Tag Filter"
+
+[node name="TagEdit" type="LineEdit" parent="HBoxContainer/QuickFilter"]
+custom_minimum_size = Vector2(215, 0)
+layout_mode = 2
+placeholder_text = "comma-delimited"
+clear_button_enabled = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="PriorityLabel" type="Label" parent="HBoxContainer/QuickFilter"]
+layout_mode = 2
+text = "Priority"
+
+[node name="PriorityFilter" type="OptionButton" parent="HBoxContainer/QuickFilter"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Any"
+popup/item_0/id = 0
+popup/item_1/text = ">="
+popup/item_1/id = 1
+popup/item_2/text = "<="
+popup/item_2/id = 2
+popup/item_3/text = "NaN"
+popup/item_3/id = 3
+
+[node name="PriorityEdit" type="SpinBox" parent="HBoxContainer/QuickFilter"]
+visible = false
+layout_mode = 2
+min_value = -10.0
+max_value = 10.0
+allow_greater = true
+allow_lesser = true
+
+[node name="SearchLabel" type="Label" parent="HBoxContainer/QuickFilter"]
+layout_mode = 2
+text = "Search"
+
+[node name="SearchEdit" type="LineEdit" parent="HBoxContainer/QuickFilter"]
+layout_mode = 2
+size_flags_horizontal = 3
+clear_button_enabled = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="GdFilter" type="HBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExpressionLabel" type="Label" parent="HBoxContainer/GdFilter"]
+layout_mode = 2
+text = "Expression"
+
+[node name="ExpressionEdit" type="LineEdit" parent="HBoxContainer/GdFilter"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Uses gd Expression evaluation to show only stickies that satisfy the condition.
+
+inputs:
+priority - the priority of a given sticky
+estimate - the estimate days of a sticky (0 for I don't know, 4096 for forever)
+tags - the Array of tags for a given sticky
+text - the sticky's main text
+timestamp - the unix time the sticky was open (int seconds since epoch)
+author - the author
+
+helper functions:
+any_contains_any(check : Array<string>, test : Array<string>) -> bool - true if any element in check contains any element in test as a substring
+contains_regex(check : String, pattern : String) -> bool - true if an occurrence of the regex pattern is found in check
+any_contains_regex(check : Array<string>, pattern : String) -> bool - true if an occurrence of the regex pattern is found in any element in check"
+placeholder_text = "press [enter] to apply filter - errors printed in godot output"
+
+[node name="GdToggleLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "GD Filter"
+
+[node name="GdToggleButton" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="AuthorLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Author"
+
+[node name="AuthorEdit" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="NewButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "New"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="IssueItem" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 2
+text = "found 1 matching issue(s)"
+horizontal_alignment = 1
+
+[node name="SaveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TagPalettePopup" type="PopupPanel" parent="."]
+theme_type_variation = &"PopupMenu"
+
+[node name="BackingPanel" type="PanelContainer" parent="TagPalettePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="TagPaletteGrid" type="GridContainer" parent="TagPalettePopup/BackingPanel"]
+layout_mode = 2
+columns = 4
+
+[connection signal="text_changed" from="HBoxContainer/QuickFilter/TagEdit" to="." method="_on_tag_text_changed"]
+[connection signal="item_selected" from="HBoxContainer/QuickFilter/PriorityFilter" to="." method="_on_priority_filter_selected"]
+[connection signal="value_changed" from="HBoxContainer/QuickFilter/PriorityEdit" to="." method="_on_priority_filter_value_changed"]
+[connection signal="text_changed" from="HBoxContainer/QuickFilter/SearchEdit" to="." method="_on_search_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/GdFilter/ExpressionEdit" to="." method="_on_expression_text_changed"]
+[connection signal="text_submitted" from="HBoxContainer/GdFilter/ExpressionEdit" to="." method="_on_expression_text_entered"]
+[connection signal="toggled" from="HBoxContainer/GdToggleButton" to="." method="_on_gd_toggled"]
+[connection signal="text_changed" from="HBoxContainer/AuthorEdit" to="." method="_on_author_changed"]
+[connection signal="pressed" from="HBoxContainer/NewButton" to="." method="_on_new_pressed"]
+[connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

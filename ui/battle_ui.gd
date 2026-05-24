@@ -5,14 +5,6 @@ class_name BattleUI
 @onready var core_stats_right: CoreStatsHUD = $CoreStatsRight
 @onready var core_stats_huds: Array[CoreStatsHUD] = [core_stats_left, core_stats_right]
 
-func _ready() -> void:
-	for hud in core_stats_huds:
-		hud.toggle_combatant_stats()
-
-func link_actor_to_side(actor: Actor, side: String) -> void:
-	var target_slot: CoreStatsHUD = $CoreStatsLeft if side == "left" else $CoreStatsRight
-	target_slot.assign_actor(actor)
-		
 func update_phase_label(current_phase: String , current_beat: int) -> void:
 	var label_text: String
 	if current_phase == "BEAT":

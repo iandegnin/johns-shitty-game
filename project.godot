@@ -22,9 +22,9 @@ config/icon="res://assets/sprites/icon.svg"
 [autoload]
 
 GameEvents="*res://common/singletons/game_events.gd"
-ActorFactory="*uid://chh2xo85yrscs"
-ActorRegistry="*uid://dmk0skeu84dgf"
-ActorMutator="*uid://juk4bnfvpckx"
+CombatantFactory="*uid://chh2xo85yrscs"
+CombatantRegistry="*uid://dmk0skeu84dgf"
+CombatantMutator="*uid://juk4bnfvpckx"
 
 [debug]
 
@@ -37,6 +37,14 @@ window/size/viewport_height=360
 window/size/window_width_override=1900
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quick_notes_dock/plugin.cfg")
+
+[gemini_gd]
+
+gemini_configuration/api_key="AIzaSyCuTCK_Nge4X_ks72Jt7msUHSbA7FQvuCs"
 
 [rendering]
 

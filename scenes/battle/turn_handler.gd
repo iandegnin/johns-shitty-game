@@ -1,14 +1,14 @@
 extends Node
 class_name TurnHandler
 
-@onready var turn_tracker: TurnTracker = $TurnTracker
+enum Phase { START, BUFFER, BEAT, RECOVERY, AFTERMATH }
 
-@onready var Phase: Dictionary = TurnTracker.Phase
-@onready var current_phase: TurnTracker.Phase = turn_tracker.current_phase
-@onready var current_turn: int = turn_tracker.current_turn
-@onready var current_beat: int = turn_tracker.current_beat
+@onready var current_turn: int = 1
+@onready var current_phase: Phase = Phase.START
+@onready var current_beat: int = 1
 
-signal aftermath_phase_ended()
+signal phase_updated(phase_name: String, beat: int)
+signal turn_updated(turn: int)
 
 func advance_turn() -> void:
 	current_turn += 1
@@ -26,7 +26,8 @@ func advance_phase() -> void:
 				current_phase = Phase.RECOVERY
 		Phase.RECOVERY: current_phase = Phase.AFTERMATH
 		Phase.AFTERMATH: 
+				advance_turn()
 				current_phase = Phase.START
-				aftermath_phase_ended.emit()
-				#This means that, on turn change, turn_changed emits before phase_changed
-				#Problem? Maybe in the future!
+	phase_updated.emit(Phase.keys()[current_phase], current_beat)
+	if current_phase == Phase.START:
+		turn_updated.emit(current_turn)

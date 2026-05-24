@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ActorVisuals" format=3 uid="uid://b3bb6gyxanvng"]
+
+[ext_resource type="Script" uid="uid://bjqqi7uvd7m4d" path="res://common/components/combatant_visuals/combatant_visuals.gd" id="1_wr8x7"]
+[ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="2_4662b"]
+
+[resource]
+script = ExtResource("1_wr8x7")
+texture = ExtResource("2_4662b")
+metadata/_custom_type_script = "uid://bjqqi7uvd7m4d"
