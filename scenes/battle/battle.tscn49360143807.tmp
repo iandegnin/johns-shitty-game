@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://dtcmed61yx6hl"]
+
+[ext_resource type="Script" uid="uid://1a5wfr44kdf" path="res://scenes/battle/combat_handler.gd" id="1_jb6ie"]
+[ext_resource type="Script" uid="uid://dvoqu7ixap3ay" path="res://scenes/battle/battle.gd" id="1_w7som"]
+[ext_resource type="Script" uid="uid://t4bnkxeu2hi4" path="res://scenes/battle/turn_handler.gd" id="2_xybuj"]
+[ext_resource type="Script" uid="uid://bk22tl5kymb4x" path="res://scenes/battle/debug_advance_phase.gd" id="4_a4f60"]
+[ext_resource type="Script" uid="uid://jscstoge6pb0" path="res://scenes/battle/make_slime.gd" id="5_a4f60"]
+[ext_resource type="PackedScene" uid="uid://bqhpb6ej5xjgw" path="res://ui/battle_ui.tscn" id="6_fh7rg"]
+[ext_resource type="Script" uid="uid://cjhne4rv76rvp" path="res://common/combatant_team.gd" id="7_pll4o"]
+
+[node name="Battle" type="Node2D" unique_id=471605585]
+script = ExtResource("1_w7som")
+
+[node name="BattleUI" parent="." unique_id=672500802 instance=ExtResource("6_fh7rg")]
+
+[node name="PhaseLabel" type="Label" parent="BattleUI" unique_id=278314478]
+offset_left = 298.0
+offset_top = 274.0
+offset_right = 371.0
+offset_bottom = 323.0
+text = "START"
+
+[node name="TurnLabel" type="Label" parent="BattleUI" unique_id=21422701]
+offset_left = 300.0
+offset_top = 322.0
+offset_right = 357.0
+offset_bottom = 345.0
+text = "TURN 1"
+
+[node name="CombatHandler" type="Node" parent="." unique_id=1257039900]
+script = ExtResource("1_jb6ie")
+metadata/_custom_type_script = "uid://1a5wfr44kdf"
+
+[node name="TurnHandler" type="Node" parent="." unique_id=350006202]
+script = ExtResource("2_xybuj")
+metadata/_custom_type_script = "uid://t4bnkxeu2hi4"
+
+[node name="LeftSpawn" type="Marker2D" parent="." unique_id=1261445217]
+position = Vector2(108, 206)
+
+[node name="RightSpawn" type="Marker2D" parent="." unique_id=1208467669]
+position = Vector2(503, 198)
+
+[node name="MakeLeftSlime" type="Button" parent="." unique_id=454921027]
+offset_left = 209.0
+offset_top = 77.0
+offset_right = 306.0
+offset_bottom = 108.0
+text = "Make Slime"
+script = ExtResource("5_a4f60")
+
+[node name="MakeRightSlime" type="Button" parent="." unique_id=2022899152]
+offset_left = 320.0
+offset_top = 76.0
+offset_right = 417.0
+offset_bottom = 107.0
+text = "Make Slime"
+
+[node name="DebugAdvancePhase" type="Button" parent="." unique_id=81168068]
+offset_left = 261.0
+offset_top = 121.0
+offset_right = 378.0
+offset_bottom = 161.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Change Phase"
+script = ExtResource("4_a4f60")
+
+[node name="DebugGetHurtLeftButton" type="Button" parent="." unique_id=961765152]
+offset_left = 227.0
+offset_top = 165.0
+offset_right = 302.0
+offset_bottom = 196.0
+text = "Get Hurt"
+
+[node name="DebugAttackLeftButton" type="Button" parent="." unique_id=1861457118]
+offset_left = 232.0
+offset_top = 201.0
+offset_right = 290.0
+offset_bottom = 232.0
+text = "Attack"
+
+[node name="DebugCastSpellLeftButton" type="Button" parent="." unique_id=1185452902]
+offset_left = 226.0
+offset_top = 234.0
+offset_right = 311.0
+offset_bottom = 265.0
+text = "Cast Spell
+"
+
+[node name="DebugGetHurtRightButton" type="Button" parent="." unique_id=1210626221]
+offset_left = 326.0
+offset_top = 164.0
+offset_right = 401.0
+offset_bottom = 195.0
+text = "Get Hurt"
+
+[node name="DebugAttackRightButton" type="Button" parent="." unique_id=788105720]
+offset_left = 335.0
+offset_top = 202.0
+offset_right = 393.0
+offset_bottom = 233.0
+text = "Attack"
+
+[node name="DebugCastSpellRightButton" type="Button" parent="." unique_id=987632714]
+offset_left = 324.0
+offset_top = 239.0
+offset_right = 407.0
+offset_bottom = 270.0
+text = "Cast Spell"
+
+[node name="CombatantTeamLeft" type="Node" parent="." unique_id=560979831]
+script = ExtResource("7_pll4o")
+metadata/_custom_type_script = "uid://cjhne4rv76rvp"
+
+[node name="CombatantTeamRight" type="Node" parent="." unique_id=697066150]
+script = ExtResource("7_pll4o")
+metadata/_custom_type_script = "uid://cjhne4rv76rvp"

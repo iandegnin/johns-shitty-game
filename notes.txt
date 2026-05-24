@@ -1,3 +1,3 @@
 -Ensure HUD works (create_new_combatant within battle.gd)
 
--CoreStatHUD is not currently the authority on what actors it assigns and makes active;  BattleUI is. This should probably be fixed
+

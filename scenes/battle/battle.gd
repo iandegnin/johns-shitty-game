@@ -43,9 +43,9 @@ var current_turn: int:
 func _ready() -> void:
 	turn_handler.phase_updated.connect(battle_ui.update_phase_label)
 	turn_handler.turn_updated.connect(battle_ui.update_turn_label)
-	_connect_ui_signals()
+	
 	_connect_debug_button_signals()
-
+	_connect_ui_signals()
 	
 	_spawn_markers = {
 		Side.LEFT: left_spawn_marker,
@@ -75,16 +75,14 @@ func _on_combatant_spawned() -> void:
 func _on_combatant_died(combatant: Combatant) -> void:
 	pass
 	#Find a way to toggle stat bars off
-
-func _connect_ui_signals() -> void:
-	left_team.combatant_activated.connect(battle_ui.core_stats_left._on_combatant_team_new_active_combatant)
-	left_team.combatant_added.connect(battle_ui.core_stats_left._on_combatant_team_new_combatant)
-	right_team.combatant_activated.connect(battle_ui.core_stats_right._on_combatant_team_new_active_combatant)
-	right_team.combatant_added.connect(battle_ui.core_stats_right._on_combatant_team_new_combatant)
 	
 func get_spawn_position_from_side(side: Battle.Side) -> Vector2:
 	return _spawn_markers[side].global_position
 	
+func _connect_ui_signals() -> void:
+	left_team.combatant_activated.connect(battle_ui.core_stats_left._on_new_active_combatant)
+	right_team.combatant_activated.connect(battle_ui.core_stats_right._on_new_active_combatant)
+
 #Debug helper functions
 
 func _connect_debug_button_signals() -> void:
