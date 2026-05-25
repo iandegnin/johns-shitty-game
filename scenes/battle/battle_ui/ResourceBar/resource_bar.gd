@@ -4,7 +4,7 @@ class_name ResourceBar
 @export var pip_scene: PackedScene	
 @onready var pips: Array[Node] = get_children()
 
-func toggle_all_pips(is_filled: bool) -> void:
+func set_all_pips(is_filled: bool) -> void:
 	for i in range(pips.size()):
 		pips[i].set_filled(is_filled)
 

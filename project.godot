@@ -42,10 +42,6 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/quick_notes_dock/plugin.cfg")
 
-[gemini_gd]
-
-gemini_configuration/api_key="AIzaSyCuTCK_Nge4X_ks72Jt7msUHSbA7FQvuCs"
-
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -4,6 +4,7 @@ class_name CoreStatsHUD
 var _assigned_combatants: Array[Combatant]
 var _active_combatant: Combatant
 
+#remove dictionary
 var _resource_bars: Dictionary = {}
 
 @export var health_bar: ResourceBar
@@ -15,7 +16,7 @@ var _resource_bars: Dictionary = {}
 @export var mana_color: Color = Color("BLUE")
 
 func _ready() -> void:
-	var resource_bars: Array = [health_bar, stamina_bar, mana_bar]
+	#get rid of
 	_resource_bars = {
 		CoreStats.CoreStatType.HEALTH: health_bar,
 		CoreStats.CoreStatType.STAMINA: stamina_bar,
@@ -38,15 +39,16 @@ func update_resource(resource_bar: ResourceBar, value: int) -> void:
 
 func toggle_combatant_stats() -> void:
 	if not is_instance_valid(_active_combatant):
-		if health_bar: health_bar.toggle_all_pips(false)
-		if stamina_bar: stamina_bar.toggle_all_pips(false)
-		if mana_bar: mana_bar.toggle_all_pips(false)
+		if health_bar: health_bar.set_all_pips(false)
+		if stamina_bar: stamina_bar.set_all_pips(false)
+		if mana_bar: mana_bar.set_all_pips(false)
 	else:
-		if health_bar: health_bar.toggle_all_pips(true)
-		if stamina_bar: stamina_bar.toggle_all_pips(true)
-		if mana_bar: mana_bar.toggle_all_pips(true)
+		if health_bar: health_bar.set_all_pips(true)
+		if stamina_bar: stamina_bar.set_all_pips(true)
+		if mana_bar: mana_bar.set_all_pips(true)
 	
 func _on_combatant_stat_changed(type: CoreStats.CoreStatType, new_value: int) -> void:
+	#just use 3 different functions, don't use types. or use a switch statement
 	var resource_bar: ResourceBar = _resource_bars.get(type)
 	if resource_bar:
 		update_resource(resource_bar, new_value)	

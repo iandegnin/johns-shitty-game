@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b67vvnlx6rc1l"]
 
 [ext_resource type="Texture2D" uid="uid://xv0rt7btksob" path="res://assets/sprites/icon.svg" id="1_l4fyd"]
-[ext_resource type="Script" uid="uid://dbkmd73ndigxu" path="res://ui/ResourceBar/resource_pip.gd" id="2_vb2sb"]
+[ext_resource type="Script" uid="uid://dbkmd73ndigxu" path="res://scenes/battle/battle_ui/ResourceBar/resource_pip.gd" id="2_vb2sb"]
 
 [node name="TextureRect" type="TextureRect" unique_id=931118751]
 custom_minimum_size = Vector2(16, 16)

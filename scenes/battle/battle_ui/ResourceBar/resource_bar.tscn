@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0txmn26jnipl"]
 
-[ext_resource type="Script" uid="uid://c2qre4fsbuo3j" path="res://ui/ResourceBar/resource_bar.gd" id="1_6k4g5"]
-[ext_resource type="PackedScene" uid="uid://b67vvnlx6rc1l" path="res://ui/ResourceBar/resource_pip.tscn" id="2_ftfeo"]
+[ext_resource type="Script" uid="uid://c2qre4fsbuo3j" path="res://scenes/battle/battle_ui/ResourceBar/resource_bar.gd" id="1_6k4g5"]
+[ext_resource type="PackedScene" uid="uid://b67vvnlx6rc1l" path="res://scenes/battle/battle_ui/ResourceBar/resource_pip.tscn" id="2_ftfeo"]
 
 [node name="ResourceBar" type="HBoxContainer" unique_id=1503389735]
 script = ExtResource("1_6k4g5")

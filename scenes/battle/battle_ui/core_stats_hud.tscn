@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dycg608i4nr4i"]
 
-[ext_resource type="Script" uid="uid://w33shebiu3w3" path="res://ui/core_stats_hud.gd" id="1_11gnt"]
-[ext_resource type="PackedScene" uid="uid://c0txmn26jnipl" path="res://ui/ResourceBar/resource_bar.tscn" id="2_fm3ja"]
+[ext_resource type="Script" uid="uid://w33shebiu3w3" path="res://scenes/battle/battle_ui/core_stats_hud.gd" id="1_11gnt"]
+[ext_resource type="PackedScene" uid="uid://c0txmn26jnipl" path="res://scenes/battle/battle_ui/ResourceBar/resource_bar.tscn" id="2_fm3ja"]
 
 [node name="CoreStatsHUD" type="MarginContainer" unique_id=177515477 node_paths=PackedStringArray("health_bar", "stamina_bar", "mana_bar")]
 offset_right = 40.0

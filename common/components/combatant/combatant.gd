@@ -18,6 +18,7 @@ signal died(combatant: Combatant)
 @onready var mana_component: CoreStatComponent = $ManaComponent
 @onready var stamina_component: CoreStatComponent = $StaminaComponent
 
+#get rid of dictionary
 @onready var stat_components : Dictionary = { 			
 			CoreStats.CoreStatType.HEALTH : health_component,
 			CoreStats.CoreStatType.STAMINA : stamina_component,
@@ -33,6 +34,7 @@ func _ready() -> void:
 	add_to_group("combatants")
 	print("New combatant created and set up: ", self.get_name())
 	
+#just make 3 functions
 func pay_cost(amount: int, resource_type: CoreStats.CoreStatType) -> void:
 	stat_components[resource_type].modify(-amount)
 
