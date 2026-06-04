@@ -1,25 +1,9 @@
 [gd_scene format=3 uid="uid://c7uwdr7lsn43x"]
 
 [ext_resource type="Script" uid="uid://cl0vu7up5ag6w" path="res://common/components/combatant/combatant.gd" id="1_bqkci"]
-[ext_resource type="PackedScene" uid="uid://bvceuelgedftg" path="res://common/components/combatant_visuals/combatant_view.tscn" id="2_3y5sl"]
-[ext_resource type="Script" uid="uid://pbsjxsxt635j" path="res://common/components/stats/core_stat_component.gd" id="3_nf7xf"]
+[ext_resource type="PackedScene" uid="uid://bvceuelgedftg" path="res://common/components/combatant/combatant_visuals/combatant_view.tscn" id="2_3y5sl"]
 
 [node name="Combatant" type="Node2D" unique_id=597848293]
 script = ExtResource("1_bqkci")
 
 [node name="CombatantView" parent="." unique_id=979803892 instance=ExtResource("2_3y5sl")]
-
-[node name="HealthComponent" type="Node" parent="." unique_id=295550508]
-script = ExtResource("3_nf7xf")
-is_lethal = true
-metadata/_custom_type_script = "uid://pbsjxsxt635j"
-
-[node name="StaminaComponent" type="Node" parent="." unique_id=441456251]
-script = ExtResource("3_nf7xf")
-stat_type = 1
-metadata/_custom_type_script = "uid://pbsjxsxt635j"
-
-[node name="ManaComponent" type="Node" parent="." unique_id=668694490]
-script = ExtResource("3_nf7xf")
-stat_type = 2
-metadata/_custom_type_script = "uid://pbsjxsxt635j"

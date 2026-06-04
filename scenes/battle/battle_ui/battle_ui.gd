@@ -1,9 +1,8 @@
 extends CanvasLayer
 class_name BattleUI
 
-@onready var core_stats_left: CoreStatsHUD = $CoreStatsLeft
-@onready var core_stats_right: CoreStatsHUD = $CoreStatsRight
-@onready var core_stats_huds: Array[CoreStatsHUD] = [core_stats_left, core_stats_right]
+@onready var left_team_hud: CoreStatsHUD = $LeftTeamHUD
+@onready var right_team_hud: CoreStatsHUD = $RightTeamHUD
 
 func update_phase_label(current_phase: String , current_beat: int) -> void:
 	var label_text: String
@@ -12,8 +11,7 @@ func update_phase_label(current_phase: String , current_beat: int) -> void:
 	else:
 		label_text = current_phase
 	$PhaseLabel.text = label_text
-	
+
 func update_turn_label(current_turn: int) -> void:
 	var label_text: String = str(current_turn)
 	$TurnLabel.text = ("TURN " + label_text)
-	

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvceuelgedftg"]
 
-[ext_resource type="Script" uid="uid://bwdsvgkbha4gm" path="res://common/components/combatant_visuals/combatant_view.gd" id="1_31a8c"]
+[ext_resource type="Script" uid="uid://bwdsvgkbha4gm" path="res://common/components/combatant/combatant_visuals/combatant_view.gd" id="1_31a8c"]
 
 [node name="ActorView" type="Node2D" unique_id=979803892]
 script = ExtResource("1_31a8c")

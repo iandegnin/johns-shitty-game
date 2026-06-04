@@ -37,6 +37,13 @@ offset_bottom = 108.0
 text = "Make Slime"
 script = ExtResource("5_a4f60")
 
+[node name="MakeRightSlime" type="Button" parent="BattleManager" unique_id=2022899152]
+offset_left = 320.0
+offset_top = 76.0
+offset_right = 417.0
+offset_bottom = 107.0
+text = "Make Slime"
+
 [node name="DebugAdvancePhase" type="Button" parent="BattleManager" unique_id=81168068]
 offset_left = 261.0
 offset_top = 121.0
@@ -54,12 +61,41 @@ offset_right = 302.0
 offset_bottom = 196.0
 text = "Get Hurt"
 
+[node name="DebugAttackLeftButton" type="Button" parent="BattleManager" unique_id=1861457118]
+offset_left = 232.0
+offset_top = 201.0
+offset_right = 290.0
+offset_bottom = 232.0
+text = "Attack"
+
+[node name="DebugCastSpellLeftButton" type="Button" parent="BattleManager" unique_id=1185452902]
+offset_left = 226.0
+offset_top = 234.0
+offset_right = 311.0
+offset_bottom = 265.0
+text = "Cast Spell
+"
+
 [node name="DebugGetHurtRightButton" type="Button" parent="BattleManager" unique_id=1210626221]
 offset_left = 326.0
 offset_top = 164.0
 offset_right = 401.0
 offset_bottom = 195.0
 text = "Get Hurt"
+
+[node name="DebugAttackRightButton" type="Button" parent="BattleManager" unique_id=788105720]
+offset_left = 335.0
+offset_top = 202.0
+offset_right = 393.0
+offset_bottom = 233.0
+text = "Attack"
+
+[node name="DebugCastSpellRightButton" type="Button" parent="BattleManager" unique_id=987632714]
+offset_left = 324.0
+offset_top = 239.0
+offset_right = 407.0
+offset_bottom = 270.0
+text = "Cast Spell"
 
 [node name="ActiveCombatantLabel" type="Label" parent="BattleManager" unique_id=560897904]
 offset_left = 6.0
@@ -91,9 +127,9 @@ scale = Vector2(0.6118472, 0.6197132)
 text = "Swap to active"
 
 [node name="Swap2" type="Button" parent="BattleManager" unique_id=393788833]
-offset_left = 120.99999
-offset_top = 313.99997
-offset_right = 257.0
-offset_bottom = 344.99997
+offset_left = 3.0517578e-05
+offset_top = 8.0000305
+offset_right = 136.00003
+offset_bottom = 39.00003
 scale = Vector2(0.7408143, 0.7098375)
 text = "Swap to active"

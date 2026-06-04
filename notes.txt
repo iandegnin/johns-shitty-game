@@ -1,3 +1,1 @@
--Ensure HUD works (create_new_combatant within battle.gd)
-
--separate CoreStatComponent into 3 components
+-Slimes can't die, triggers got deleted prob

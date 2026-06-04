@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://bqhpb6ej5xjgw"]
 
 [ext_resource type="Script" uid="uid://cnm7rpgqhibnb" path="res://scenes/battle/battle_ui/battle_ui.gd" id="1_76cpj"]
-[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://scenes/battle/battle_ui/core_stats_hud.tscn" id="1_fyysl"]
+[ext_resource type="PackedScene" uid="uid://dycg608i4nr4i" path="res://scenes/battle/battle_ui/team_hud.tscn" id="1_fyysl"]
 
 [node name="BattleUI" type="CanvasLayer" unique_id=672500802]
 script = ExtResource("1_76cpj")
 
-[node name="CoreStatsLeft" parent="." unique_id=177515477 instance=ExtResource("1_fyysl")]
+[node name="LeftTeamHUD" parent="." unique_id=177515477 instance=ExtResource("1_fyysl")]
 size_flags_horizontal = 0
 
-[node name="CoreStatsRight" parent="." unique_id=1966422193 instance=ExtResource("1_fyysl")]
+[node name="RightTeamHUD" parent="." unique_id=1966422193 instance=ExtResource("1_fyysl")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_right = 0.0
+offset_left = -56.0
+offset_right = -16.0
+offset_bottom = 138.0
 grow_horizontal = 0
 
 [node name="PhaseLabel" type="Label" parent="." unique_id=2067950472]

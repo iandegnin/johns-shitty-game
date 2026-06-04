@@ -14,8 +14,3 @@ func apply_configuration(config: CombatantVisuals) -> void:
 	sprite.frame = config.default_frame
 	sprite.offset = config.offset
 	sprite.modulate = config.modulate
-
-func flash_hurt(duration: float = 0.1) -> void:
-	var tween: Tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color.RED, duration)
-	tween.chain().tween_property(sprite, "modulate", Color.WHITE, duration)
