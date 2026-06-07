@@ -13,9 +13,9 @@ signal combatant_created
 
 @onready var get_hurt_left: Button = get_node("DebugGetHurtLeftButton")
 
-@onready var active_label: Label = get_node("ActiveCombatantLabel")
-@onready var inactive_1: Label = get_node("InactiveCombatantLabel1")
-@onready var inactive_2: Label = get_node("InactiveCombatantLabel2")
+@onready var active_label: Label = get_node("ActiveLabel")
+@onready var inactive_1: Label = get_node("Inactive1Label")
+@onready var inactive_2: Label = get_node("Inactive2Label")
 
 @onready var swap1: Button = get_node("Swap1")
 @onready var swap2: Button = get_node("Swap2")
@@ -49,11 +49,18 @@ func create_new_combatant(combatant_id: String, target_team: CombatantTeam) -> v
 	target_team.add_combatant(new_combatant)
 	
 	combatant_created.emit()
-	
-
-
 
 #Debug helper functions
+
+func _update_roster_labels(combatant_team: CombatantTeam) -> void:
+	var labels: Array = [active_label, inactive_1, inactive_2]
+	var roster: Array = left_team.roster
+	
+	for i in range(labels.size()):
+		if i < roster.size() and roster[i] != null:
+			labels[i].text = roster[i].name
+		else:
+			labels[i].text = ""
 
 func _connect_debug_button_signals() -> void:
 	advance_phase_button.pressed.connect(end_phase)
@@ -64,6 +71,8 @@ func _connect_debug_button_signals() -> void:
 	
 	swap1.pressed.connect(_on_swap_1_pressed)
 	swap2.pressed.connect(_on_swap_2_pressed)
+	
+	left_team.roster_ordered.connect(_update_roster_labels)
 
 func _on_hurt_left() -> void:
 	left_team.active_combatant.modify_resource(CoreStats.CoreStatType.HEALTH, -1)

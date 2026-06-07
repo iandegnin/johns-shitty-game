@@ -61,39 +61,40 @@ offset_right = 401.0
 offset_bottom = 195.0
 text = "Get Hurt"
 
-[node name="ActiveCombatantLabel" type="Label" parent="BattleManager" unique_id=560897904]
-offset_left = 6.0
-offset_top = 245.0
-offset_right = 106.0
-offset_bottom = 268.0
-text = "Active: "
-
-[node name="InactiveCombatantLabel2" type="Label" parent="BattleManager" unique_id=779304015]
-offset_left = 8.0
-offset_top = 274.0
-offset_right = 108.0
-offset_bottom = 297.0
-text = "Inactive 1:"
-
-[node name="InactiveCombatantLabel1" type="Label" parent="BattleManager" unique_id=1943408378]
-offset_left = 7.0
-offset_top = 312.0
-offset_right = 107.0
-offset_bottom = 335.0
-text = "Inactive 2:"
-
 [node name="Swap1" type="Button" parent="BattleManager" unique_id=1917738252]
-offset_left = 137.0
-offset_top = 282.00003
-offset_right = 257.0
-offset_bottom = 313.00003
+offset_left = 32.000023
+offset_top = 245.0
+offset_right = 152.00003
+offset_bottom = 276.0
 scale = Vector2(0.6118472, 0.6197132)
 text = "Swap to active"
 
 [node name="Swap2" type="Button" parent="BattleManager" unique_id=393788833]
-offset_left = 120.99999
-offset_top = 313.99997
-offset_right = 257.0
-offset_bottom = 344.99997
+offset_left = 19.000008
+offset_top = 281.00003
+offset_right = 155.0
+offset_bottom = 312.00003
 scale = Vector2(0.7408143, 0.7098375)
 text = "Swap to active"
+
+[node name="ActiveLabel" type="Label" parent="BattleManager" unique_id=1282830516]
+offset_left = 81.0
+offset_top = 20.0
+offset_right = 121.0
+offset_bottom = 43.0
+text = "Active"
+
+[node name="Inactive1Label" type="Label" parent="BattleManager" unique_id=1539820165]
+offset_left = 77.0
+offset_top = 93.0
+offset_right = 117.0
+offset_bottom = 116.0
+text = "Inactive 1"
+
+[node name="Inactive2Label" type="Label" parent="BattleManager" unique_id=1336186845]
+offset_left = 75.0
+offset_top = 144.0
+offset_right = 115.0
+offset_bottom = 167.0
+text = "Inactive 2
+"
